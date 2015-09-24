@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 6.2.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_6_2_0.dtd">
+
+<layout-templates>
+	<custom>
+		<!-- layout-template id="BMC_Profile" name="BMC Profile">
+			<template-path>/BMC_Profile.tpl</template-path>
+			<wap-template-path>/BMC_Profile.wap.tpl</wap-template-path>
+			<thumbnail-path>/BMC_Profile.png</thumbnail-path>
+			</layout-template> -->
+		<!-- <layout-template id="profile" name="Profile">
+			<template-path>/profile.tpl</template-path>
+			<wap-template-path>/profile.wap.tpl</wap-template-path>
+			<thumbnail-path>/profile.png</thumbnail-path>
+			</layout-template> -->
+
+
+		<layout-template id="bmc-CMS" name="BMC-CMS">
+			<template-path>/bmc.tpl</template-path>
+			<wap-template-path>/bmc.wap.tpl</wap-template-path>
+			<thumbnail-path>/bmc.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="bmchome-CMS" name="BMC-Home-CMS">
+			<template-path>/bmchome.tpl</template-path>
+			<wap-template-path>/bmchome.wap.tpl</wap-template-path>
+			<thumbnail-path>/bmchome.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="bmsmedia-CMS" name="BMS-Media-CMS">
+			<template-path>/bmsmedia.tpl</template-path>
+			<wap-template-path>/bmsmedia.wap.tpl</wap-template-path>
+			<thumbnail-path>/bmsmedia.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="bmccontact-CMS" name="BMC_Contact-CMS">
+			<template-path>/bmccontact.tpl</template-path>
+			<wap-template-path>/bmccontact.wap.tpl</wap-template-path>
+			<thumbnail-path>/bmccontact.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="bmcfacilities-CMS"
+			name="BMC Facilities-CMS">
+			<template-path>/bmcfacilities.tpl</template-path>
+			<wap-template-path>
+				/bmcfacilities.wap.tpl
+			</wap-template-path>
+			<thumbnail-path>/bmcfacilities.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="bmcprofile-CMS" name="BMC-Profile-CMS">
+			<template-path>/bmcprofile.tpl</template-path>
+			<wap-template-path>/bmcprofile.wap.tpl</wap-template-path>
+			<thumbnail-path>/bmcprofile.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="BHC-bms-CMS" name="BHC-BMS-CMS">
+			<template-path>/bms.tpl</template-path>
+			<wap-template-path>/bms.wap.tpl</wap-template-path>
+			<thumbnail-path>/bms.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="bhcbms" name="BHC-BMS">
+			<template-path>/bhcbms.tpl</template-path>
+			<wap-template-path>/bhcbms.wap.tpl</wap-template-path>
+			<thumbnail-path>/bhcbms.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="overview" name="overview">
+			<template-path>/overview.tpl</template-path>
+			<wap-template-path>/overview.wap.tpl</wap-template-path>
+			<thumbnail-path>/overview.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>

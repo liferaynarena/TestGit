@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 6.2.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_6_2_0.dtd">
+
+<layout-templates>
+	<custom>
+		<layout-template id="BPTLatest" name="BPTLatest">
+			<template-path>/BPTLatest.tpl</template-path>
+			<wap-template-path>/BPTLatest.wap.tpl</wap-template-path>
+			<thumbnail-path>/BPTLatest.png</thumbnail-path>
+		</layout-template>
+		<!-- <layout-template id="newtemplate" name="New Template">
+			<template-path>/newtemplate.tpl</template-path>
+			<wap-template-path>/newtemplate.wap.tpl</wap-template-path>
+			<thumbnail-path>/newtemplate.png</thumbnail-path>
+		</layout-template> -->
+	</custom>
+</layout-templates>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+	
+	    <link href='http://fonts.googleapis.com/css?family=Raleway:300,700|Open+Sans:300,400' rel='stylesheet' type='text/css'>
+		<link href="/BPTLatest-theme/css/css/reset.css" rel="stylesheet">
+		<link href="/BPTLatest-theme/css/css/foundation.css" rel="stylesheet">
+		<link href="/BPTLatest-theme/css/css/ionicons.css" rel="stylesheet">
+		<link href="/BPTLatest-theme/css/css/jquery.fancybox.css" rel="stylesheet">
+		<link href="/BPTLatest-theme/css/css/fancybox/helpers/jquery.fancybox-thumbs.css" rel="stylesheet">
+		<link href="/BPTLatest-theme/css/css/isotope.css" rel="stylesheet">
+		<link href="/BPTLatest-theme/css/css/flexslider.css" rel="stylesheet">
+		<link href="/BPTLatest-theme/css/css/validationEngine.jquery.css" rel="stylesheet">
+		<link href="/BPTLatest-theme/css/rs-plugin/css/settings.css" rel="stylesheet" media="screen" />
+		<link href="/BPTLatest-theme/css/css/thine.css" rel="stylesheet">
+		<link href="/BPTLatest-theme/css/css/thine-responsive.css" rel="stylesheet">
+		
+		
+
+	$theme.include($top_head_include)
+	
+		<!-- Some JS that need to be loaded in this head section -->
+		<script src="/BPTLatest-theme/js/custom.modernizr.js"></script>
+		
+		<!-- Favicons -->
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+</head>
+
+<body class="$css_class bg-set">
+
+<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+
+$theme.include($body_top_include)
+
+#dockbar()
+
+<div class="container-fluid" id="root-container">
+	<!-- <header id="banner" role="banner">
+		<div id="heading">
+			<h1 class="site-title">
+				<a class="$logo_css_class" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
+					<img alt="$logo_description" height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
+
+					#if ($show_site_name)
+						<span class="site-name" title="#language_format ("go-to-x", [$site_name])">
+							$site_name
+						</span>
+					#end
+				</a>
+
+			</h1>
+
+			<h2 class="page-title">
+				<span>$the_title</span>
+			</h2>
+		</div>
+
+		#if ($has_navigation || $is_signed_in)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+	</header> -->
+	
+	<!-- Header Container -->
+			<div id="header-container" class="main-width">
+				
+                <div class="headerTop">
+            	
+                <!-- Logo and Tagline -->
+				<div id="logo-wrapper">
+					<a href="javascript:;" class="bg-set">
+					  <img alt="$logo_description" height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
+					</a>
+				</div>
+				
+				<!-- Main Menu -->
+				<nav id="menu-wrapper" class="bg-set">
+					
+					<ul id="main-menu" class="sf-menu">
+					
+					#foreach ($nav_item in $nav_items)
+
+						<li>
+							<a href="$nav_item.getURL()" class="">$nav_item.getName()</a>
+							
+							#if ($nav_item.hasChildren())
+							  <ul>
+								#foreach ($nav_child in $nav_item.getChildren())
+								
+								<li>
+							       <a href="$nav_child.getURL()" class="">$nav_child.getName()</a>
+								</li>
+								#end
+							  </ul>
+							#end
+							
+						</li>
+					#end
+					
+					</ul>
+					
+					<nav id="mobile-menu" class="top-bar">
+					    <ul class="title-area">
+					        <!-- Do not remove this list item -->
+					        <li class="name"></li>
+					        
+					        <!-- Menu toggle button -->
+					        <li class="toggle-topbar menu-icon">
+					            <a href="#"><span></span></a>
+					        </li>
+					    </ul>
+					    
+					    <!-- Mobile menu's container -->
+					    <section class="top-bar-section"></section>
+					</nav>
+					
+				</nav>
+                
+            </div>
+      		
+			</div>
+			<!-- End id="header-container" -->
+	
+	
+
+	<div id="content content-container">
+		
+		<!--<nav id="breadcrumbs">#breadcrumbs()</nav> -->
+
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+	
+	
+	<hr class="line-style" />
+
+	
+	
+	<!-- Footer Section -->
+			<div id="footer-root-container">
+				
+				<!-- Footer Content -->
+				<div id="footer-content-container" class="main-width">
+				
+					<div id="footer-content" class="row no-margin-bottom">
+					<!-- Web Content Start -->
+					
+					$theme.runtime("56_INSTANCE_fotterContent")
+					
+					<!-- 
+						<div class="large-3 columns">
+							<div class="contact-widget">
+								<h5>Group Vision</h5>
+								<p>
+									From a small trading enterprise at Muttrah in 1965, the Suhail Bahwan Group has grown to become a multibillion dollar corporate enterprise with over 40 companies in the Sultanate of Oman and across the Gulf Region, North Africa and South Asia, guided by the vision...
+								</p>
+							</div>
+						</div>
+						<div class="large-3 columns">
+							<h5>Contact Info</h5>
+								<p>Suhail Bahwan Group (Holding) LLC</p>
+								<p>4th Floor, Al Rawaq Building, Qurum, Muscat, Sultanate of Oman.</p>
+								<ul class="contact">
+									<li>
+										Phone:  (+968) 24650000
+									</li>
+									<li>
+										Fax:  (+968) 24659714
+									</li>
+									<li>
+										Email: <a href="#">contact@suhailbahwangroup.com</a>
+									</li>
+								</ul>
+						</div>
+						<div class="large-3 columns">
+							<h5>Recent News</h5>
+								<p>Suhail Bahwan Group (Holding) LLC</p>
+								<p>4th Floor, Al Rawaq Building, Qurum, Muscat, Sultanate of Oman.</p>
+								<ul class="contact">
+									<li>
+										Phone:  (+968) 24650000
+									</li>
+									<li>
+										Fax:  (+968) 24659714
+									</li>
+									<li>
+										Email: <a href="#">contact@suhailbahwangroup.com</a>
+									</li>
+								</ul>
+						</div>
+						<div class="large-3 columns">
+							<h5>Links</h5>
+                            <p class="links_ft"><a href="#">Bahwan Projects & Telecoms | Facebook</a></p>
+                            <p class="links_ft"><a href="#">Bahwan Projects & Telecoms | Linkedin</a></p>
+                            <p class="links_ft"><a href="#">Bahwan Projects & Telecoms | Twitter</a></p>
+                            <p class="links_ft"><a href="#">www.suhailbahwangroup.com</a></p>
+                            <p class="links_ft"><a href="#">www.bahwanhealthcarecenter.com</a></p>
+						</div> -->
+						
+						<!-- Web Content End -->
+					</div>
+					
+				</div>
+				
+				<hr class="line-style" />
+				
+				<!-- Footer Bar -->
+				<div id="footer-bar-container" class="main-width">
+					<div id="footer-bar">
+						<div id="copyright">
+							2015 &copy; Bahwan Projects & Telecoms. Maintained by Media | Suhail Bahwan Group Holding Llc.
+						</div>
+					</div>
+				</div>
+				
+			</div>
+	
+</div>
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+
+        <script src="/BPTLatest-theme/js/jquery-1.11.0.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false&v=3.5"></script>
+		<script src="/BPTLatest-theme/js/jquery-ui-1.10.2.custom.min.js"></script>
+		<script src="/BPTLatest-theme/js/foundation.min.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.hoverIntent.js"></script>
+		<script src="/BPTLatest-theme/js/superfish.min.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.mousewheel-3.0.6.pack.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.fancybox.pack.js"></script>
+		<script src="/BPTLatest-theme/js/fancybox-helpers/jquery.fancybox-thumbs.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.easing.1.3.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.touchSwipe.min.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.transit.min.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.carouFredSel-6.2.1.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.flexslider.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.isotope.min.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.validationEngine-en.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.validationEngine.js"></script>
+		<script src="/BPTLatest-theme/js/waypoints.min.js"></script>
+		<script src="/BPTLatest-theme/js/jquery.BlackAndWhite.js"></script>
+		<script src="/BPTLatest-theme/js/retina.js"></script>
+		<script src="/BPTLatest-theme/js/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+		<script src="/BPTLatest-theme/js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+		<script src="/BPTLatest-theme/js/thine.js"></script>
+		
+</body>
+
+</html>

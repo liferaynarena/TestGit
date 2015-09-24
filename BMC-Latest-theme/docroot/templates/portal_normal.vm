@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+
+<html class="${root_css_class}" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	$theme.include($top_head_include)
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Volkhov:400italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="$css_class">
+
+##<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+
+##$theme.include($body_top_include)
+
+#if ($is_signed_in)
+<div class="${root_css_class}">
+     #dockbar()
+</div>
+#end
+
+<div class="site_container" >
+		<!--
+		<div class="site_container" id="wrapper">
+		<header id="banner" role="banner">
+				<div id="heading">
+					<h1 class="site-title">
+						<a class="$logo_css_class" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
+							<img alt="$logo_description" height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
+		
+							#if ($show_site_name)
+								<span class="site-name" title="#language_format ("go-to-x", [$site_name])">
+									$site_name
+								</span>
+							#end
+						</a>
+		
+					</h1>
+		
+					<h2 class="page-title">
+						<span>$the_title</span>
+					</h2>
+				</div>
+		
+				#if ($is_signed_in)
+					#parse ("$full_templates_path/navigation.vm")
+				#end
+			</header>
+			-->
+
+
+             <div class="header_container">
+				<div class="header clearfix">
+					<div class="header_left">
+						<a href="$site_default_url" title="MEDICENTER">
+							<img src="$site_logo" alt="logo" />
+					    </a>
+					</div>
+										
+					<ul class="sf-menu header_right">
+					
+					#foreach ($nav_item in $nav_items)
+					
+					#set ($nav_item_css_class="")
+					
+					#if ($nav_item.isSelected())
+						#set ($nav_item_css_class="selected")
+					#end
+					
+						<li class="submenu $nav_item_css_class">
+							<a href="$nav_item.getURL()" title="$nav_item.getName()">
+								 $nav_item.getName()
+							</a>
+							#if ($nav_item.hasChildren())
+							<ul>
+							#foreach ($nav_child in $nav_item.getChildren())
+							<li> 
+							<a href="$nav_child.getURL()">$nav_child.getName()</a>
+							</li>
+							#end
+							</ul>
+							#end
+							
+						 </li>
+					#end	
+					</ul> 
+					
+					<div class="mobile_menu">
+						<select>
+						#foreach ($nav_item in $nav_items)
+						<option value="$nav_item.getURL()" selected="selected">$nav_item.getName()</option>
+						#end
+				        </select>
+				    </div>
+				    
+				</div>
+			</div>
+				
+
+
+
+	<div id="content">
+		##<nav id="breadcrumbs">#breadcrumbs()</nav>
+
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+
+
+     <div class="footer_container">
+		<div class="footer">
+		
+		$theme.runtime("56_INSTANCE_footerLinks")
+		
+		<!--<ul class="footer_banner_box_container clearfix">
+						<li style="animation-duration: 500ms; animation-delay: 0ms; transition-delay: 0ms;" class="footer_banner_box super_light_blue animated_element animation-fadeIn duration-500 fadeIn">
+							<h2>
+								Clinics
+							</h2>
+							<p>
+								<a class="icon_small_arrow right_white" href="#">Find nearest clinics & timings</a>
+							</p>
+						</li>
+						<li style="animation-duration: 800ms; animation-delay: 250ms; transition-delay: 250ms;" class="footer_banner_box light_blue animated_element animation-slideRight duration-800 delay-250 slideRight">
+							<h2>
+								Careers
+							</h2>
+							<p>
+								<a class="icon_small_arrow right_white" href="#">to see if you fit in team</a>
+							</p>
+						</li>
+						<li style="animation-duration: 800ms; animation-delay: 500ms; transition-delay: 500ms;" class="footer_banner_box blue animated_element animation-slideRight200 duration-800 delay-500 slideRight200">
+							<h2>
+								Did you Know
+							</h2>
+							<p>
+								<a class="icon_small_arrow right_white" href="#">Health sector in Oman </a>
+							</p>
+						</li>
+		</ul> -->
+		
+		
+		
+		<div class="footer_box_container clearfix" style="margin: 0px;">
+						<div class="footer_box">
+							<h3 class="box_header slide" style="display:none;">
+								Medicenter Clinic
+							</h3>
+							<p class="info" style="display:none;">
+								Mauris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada individual.
+							</p>
+							
+							
+							<ul class="footer_contact_info_container clearfix" style="display:none;">
+								<li class="footer_contact_info_row">
+									<div class="footer_contact_info_left">
+										Medicenter Clinic
+									</div>
+								</li>
+								<li class="footer_contact_info_row">
+									<div class="footer_contact_info_left">
+										33 Farlane Street
+									</div>
+									<div class="footer_contact_info_right">
+										+123 655 655
+									</div>
+								</li>
+								<li class="footer_contact_info_row">
+									<div class="footer_contact_info_left">
+										Keilor East
+									</div>
+									<div class="footer_contact_info_right">
+										+123 755 755
+									</div>
+								</li>
+								<li class="footer_contact_info_row">
+									<div class="footer_contact_info_left">
+										VIC 3033, Australia
+									</div>
+									<div class="footer_contact_info_right">
+										<a href="mailto:medicenter@mail.com" title="Send Email">
+											medicenter@mail.com
+										</a>
+									</div>
+								</li>
+							</ul>
+							
+							
+					$theme.runtime("56_INSTANCE_social")
+					
+					<!--	<ul class="social_icons clearfix">
+								<li>
+									<a class="social_icon facebook" href="$site_facebook" title="" target="_blank">
+										&nbsp;
+									</a>
+								</li>
+								<li>
+									<a class="social_icon twitter" href="$site_Twitter" title="" target="_blank">
+										&nbsp;
+									</a>
+								</li>
+								<li>
+									<a class="social_icon googleplus" href="$site_google" title="">
+										&nbsp;
+									</a>
+								</li>
+								<li>
+									<a class="social_icon mail" href="mailto:$site_mail" title="">
+										&nbsp;
+									</a>
+								</li>
+							</ul>
+					-->
+					
+						</div>
+						<div class="footer_box"  style="display:none;">
+							<div class="clearfix">
+								<div class="header_left">
+									<h3 class="box_header slide">
+										Latest Posts
+									</h3>
+								</div>
+								<div class="header_right">
+									<a style="display: block;" href="#" id="footer_recent_posts_prev" class="scrolling_list_control_left icon_small_arrow left_white"></a>
+									<a style="display: block;" href="#" id="footer_recent_posts_next" class="scrolling_list_control_right icon_small_arrow right_white"></a>
+								</div>
+							</div>
+							<div class="scrolling_list_wrapper">
+								<div style="text-align: start; float: none; top: auto; right: auto; bottom: auto; left: auto; margin: 0px; overflow: hidden; position: relative; height: 217px; width: 330px;" class="caroufredsel_wrapper"><ul style="text-align: left; float: none; position: absolute; top: 0px; left: 0px; margin: 0px; height: 809px; width: 330px;" class="scrolling_list footer_recent_posts">
+									<li class="icon_small_arrow right_white">
+										<a href="post.html">
+											Mauris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada.
+										</a>
+										<abbr title="29 May 2012" class="timeago">3 years ago</abbr>
+									</li>
+									<li class="icon_small_arrow right_white">
+										<a href="post.html">
+											Lorem ipsum dolor sit amat velum.
+										</a>
+										<abbr title="04 Apr 2012" class="timeago">3 years ago</abbr>
+									</li>
+									<li class="icon_small_arrow right_white">
+										<a href="post.html">
+											Mauris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada.
+										</a>
+										<abbr title="02 Feb 2012" class="timeago">3 years ago</abbr>
+									</li>
+									<li class="icon_small_arrow right_white">
+										<a href="post.html">
+											Lorem ipsum dolor sit amat velum, consectetur adipiscing elit.
+										</a>
+										<abbr title="24 Jan 2011" class="timeago">4 years ago</abbr>
+									</li>
+								</ul></div>
+							</div>
+						</div>
+						<div class="footer_box last" style="display:none;">
+							<div class="clearfix">
+								<div class="header_left">
+									<h3 class="box_header slide">
+										Latest Tweets
+									</h3>
+								</div>
+								<div class="header_right">
+									<a style="display: block;" href="#" id="latest_tweets_prev" class="scrolling_list_control_left icon_small_arrow left_white"></a>
+									<a style="display: block;" href="#" id="latest_tweets_next" class="scrolling_list_control_right icon_small_arrow right_white"></a>
+								</div>
+							</div>
+							<div class="scrolling_list_wrapper">
+								<div style="text-align: start; float: none; top: auto; right: auto; bottom: auto; left: auto; margin: 0px; overflow: hidden; position: relative; height: 0px; width: 0px;" class="caroufredsel_wrapper"><ul style="text-align: left; float: none; position: absolute; top: 0px; left: 0px; margin: 0px; height: 0px; width: 0px;" class="scrolling_list latest_tweets">
+								</ul></div>
+							</div>
+						</div>
+					</div>
+		
+		
+		
+		 <div class="copyright_area clearfix">
+						<div class="copyright_left">
+							&#169; Copyright - Bhawan Healthcare Centre. Mantained by Media & Communication - Suhail Bahwan Group Holding <br/>
+							Developed by <a target="_blank" href="http://www.narenasolutions.com">Narena Solutions</a>					
+						</div>
+						<div class="copyright_right">
+							<a class="scroll_top icon_small_arrow top_white" href="#top" title="Scroll to top">Top</a>
+						</div>
+		 </div>
+			
+		</div>
+	 </div>
+   <!--	<footer id="footer" role="contentinfo">
+		<p class="powered-by">
+			#language ("powered-by") <a href="http://www.liferay.com" rel="external">Liferay</a>
+		</p>
+	</footer> -->
+</div>
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+        <script type="text/javascript" src="/BMC-Latest-theme/js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.ba-bbq.min.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery-ui-1.9.2.custom.min.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.carouFredSel-5.6.4-packed.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.sliderControl.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.timeago.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.hint.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.isotope.min.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.isotope.masonry.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.fancybox-1.3.4.pack.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.qtip.min.js"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="/BMC-Latest-theme/js/main-jquery.js"></script> 
+
+</body>
+
+</html>
